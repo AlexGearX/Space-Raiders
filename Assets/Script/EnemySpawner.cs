@@ -2,24 +2,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using UnityEditor;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] List<WaveConfig> WaveConfigs;
-    int startingWave = 0;
+    [SerializeField] int startingWave = 0;
     // Start is called before the first frame update
     void Start()
     {
-        var currentWave = WaveConfigs[startingWave];
-        StartCoroutine(SpawnAllEnemiesInWave(currentWave));
+        
+        StartCoroutine(SpawnAllWaves());
+    }
+
+    private IEnumerator SpawnAllWaves()
+    {
+        for (int waveIndex = startingWave; waveIndex < WaveConfigs.Count; waveIndex++)
+        {
+            var currentWave = WaveConfigs[waveIndex];
+            yield return StartCoroutine(SpawnAllEnemiesInWave(currentWave));
+        }
     }
 
     private IEnumerator SpawnAllEnemiesInWave(WaveConfig waveConfig)
     {
         for (int enemyCount = 0 ; enemyCount < (waveConfig.GetNumberOfEnemies()); enemyCount++)
-        { 
-            var newEnemy = Instantiate(waveConfig.GetEnemyPrefab(), waveConfig.GetWayPoints()[0].transform.position, quaternion.identity);
+        {
+            var newEnemy = Instantiate(waveConfig.GetEnemyPrefab(), waveConfig.GetWayPoints()[0].transform.position, Quaternion.identity);
 
             newEnemy.GetComponent<EnemyPathing>().SetWaveConfig(waveConfig);
 
