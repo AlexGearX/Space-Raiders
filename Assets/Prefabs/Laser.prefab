@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1692145781869133596}
   - component: {fileID: -5537856404360657504}
   - component: {fileID: -5617536201013684733}
-  m_Layer: 0
+  - component: {fileID: 1433651876344381972}
+  m_Layer: 10
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,3 +139,16 @@ PolygonCollider2D:
       - {x: 0.17, y: -0.114999995}
       - {x: 0.17, y: 0.185}
       - {x: 0.14999999, y: 0.21499999}
+--- !u!114 &1433651876344381972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4737602285012505720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 596c2b9556ecbe64f9347454ec706176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100

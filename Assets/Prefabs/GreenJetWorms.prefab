@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 9074340026137712039}
   - component: {fileID: 4678789996580061283}
   - component: {fileID: 2091076097859604378}
-  m_Layer: 0
+  - component: {fileID: 1071012927097417746}
+  m_Layer: 9
   m_Name: GreenJetWorms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,3 +169,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85d71b5733c47547b07939925378f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1071012927097417746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9074340026137712038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77e1b0c72c1dfc7408efa2859c71f837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 500
+  shotCounter: 0
+  minTimeBetweenShots: 0.2
+  maxTimeBetweenShots: 3
+  projectileSpeed: 1
+  enemyLaserPrefab: {fileID: 2804318580587620095, guid: 53bf62eb5ae9c41478a5cbc20438ecfb,
+    type: 3}

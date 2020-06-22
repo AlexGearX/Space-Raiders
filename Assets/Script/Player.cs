@@ -9,9 +9,13 @@ using UnityEngine.Scripting.APIUpdating;
 
 public class Player : MonoBehaviour
 {
+    [Header("Player")]
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float paddingX = 1f;
     [SerializeField] float paddingY = 1f;
+    [SerializeField] int health = 200;
+
+    [Header("Projectile")]
     [SerializeField] GameObject LaserPrefab;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float projectileFiringPeriod = 1f;
@@ -63,6 +67,22 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+        if (!damageDealer) { return; }
+        processHit(damageDealer);
+    }
+    private void processHit(DamageDealer damageDealer)
+    {
+        health -= damageDealer.GetDamage();
+        damageDealer.Hit();
+        if (health <= 0)
+        {
+            Destroy(gameObject); // Change to Game OverScreen
+        }
+    }
+
     private void Move()
     {
        //Command keyboard
@@ -79,11 +99,7 @@ public class Player : MonoBehaviour
         var newXPos = Mathf.Clamp((transform.position.x + deltaX), xMin, xMax);
         var newYPos = Mathf.Clamp((transform.position.y + deltaY), yMin, yMax);
 
-
-
         transform.position = new Vector2(newXPos, newYPos);
-
-
     }
     private void playerSpaceLimit()
     {
