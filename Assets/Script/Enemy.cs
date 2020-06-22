@@ -5,14 +5,22 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
+    [Header("Enemy")]
     [SerializeField] float health;
+
+    [Header("shoot")]
+    [SerializeField] GameObject enemyLaserPrefab;
     [SerializeField] float shotCounter;
     [SerializeField] float minTimeBetweenShots = 0.2f;
     [SerializeField] float maxTimeBetweenShots = 3f;
     [SerializeField] float projectileSpeed = 1f;
-    [SerializeField] GameObject enemyLaserPrefab;
 
+
+    [Header("die")]
+    [SerializeField] GameObject explosionEffect;
+    [SerializeField] AudioClip enemyExplosionSound;
+    [SerializeField] [Range(0, 1)] float volumeExplosion = 0.7f;
+    [SerializeField] float dutationOfExplosion = 1f;
 
 
     Coroutine FiringCoroutine;
@@ -58,9 +66,16 @@ public class Enemy : MonoBehaviour
         damageDealer.Hit();
         if (health <= 0)
         {
-            Destroy(gameObject);
+            EnemyDie();
             //add score
             //Die effect
         }
+    }
+    private void EnemyDie()
+    {
+        Destroy(gameObject);
+        GameObject explosion = Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        Destroy(explosion,dutationOfExplosion);
+        AudioSource.PlayClipAtPoint(enemyExplosionSound, Camera.main.transform.position,volumeExplosion);
     }
 }

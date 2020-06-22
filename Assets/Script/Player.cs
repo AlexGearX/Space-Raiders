@@ -14,11 +14,18 @@ public class Player : MonoBehaviour
     [SerializeField] float paddingX = 1f;
     [SerializeField] float paddingY = 1f;
     [SerializeField] int health = 200;
+    [Header("Die")]
+    [SerializeField] AudioClip playerExplosionSound;
+    [SerializeField] [Range(0, 1)] float volumeExplosion = 0.7f;
+    [SerializeField] float dutationOfExplosion = 1f;
+    [SerializeField] GameObject explosionEffect;
 
     [Header("Projectile")]
     [SerializeField] GameObject LaserPrefab;
     [SerializeField] float projectileSpeed = 10f;
-    [SerializeField] float projectileFiringPeriod = 1f;
+    [SerializeField] [Range(0,1)] float projectileFiringPeriod = 1f;
+    [SerializeField] AudioClip shotSound;
+    [SerializeField] [Range(0, 1)] float volumeShot = 0.7f;
 
     //Variable
 
@@ -63,6 +70,7 @@ public class Player : MonoBehaviour
         {
             GameObject Laser = Instantiate(LaserPrefab, transform.position, Quaternion.identity) as GameObject;
             Laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+            AudioSource.PlayClipAtPoint(shotSound, Camera.main.transform.position, volumeShot);
             yield return new WaitForSeconds(projectileFiringPeriod);
         }
     }
@@ -79,8 +87,16 @@ public class Player : MonoBehaviour
         damageDealer.Hit();
         if (health <= 0)
         {
-            Destroy(gameObject); // Change to Game OverScreen
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject); // Change to Game OverScreen
+        GameObject explosion = Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        Destroy(explosion, dutationOfExplosion);
+        AudioSource.PlayClipAtPoint(playerExplosionSound, Camera.main.transform.position, volumeExplosion);
     }
 
     private void Move()

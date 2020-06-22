@@ -188,3 +188,8 @@ MonoBehaviour:
   projectileSpeed: 1
   enemyLaserPrefab: {fileID: 2804318580587620095, guid: 53bf62eb5ae9c41478a5cbc20438ecfb,
     type: 3}
+  explosionEffect: {fileID: 361589176378595203, guid: ba61808a1c2f42f429cfd652fcc94ef0,
+    type: 3}
+  enemyExplosionSound: {fileID: 8300000, guid: 0799ab6ed5ea89f49adcb39bee3b8e86, type: 3}
+  volumeExplosion: 0.02
+  dutationOfExplosion: 1
