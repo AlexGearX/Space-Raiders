@@ -93,11 +93,13 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject); // Change to Game OverScreen
+        Destroy(gameObject);
         GameObject explosion = Instantiate(explosionEffect, transform.position, Quaternion.identity);
         Destroy(explosion, dutationOfExplosion);
         AudioSource.PlayClipAtPoint(playerExplosionSound, Camera.main.transform.position, volumeExplosion);
+        Level.FindObjectOfType<Level>().LoadGameOver();
     }
+
 
     private void Move()
     {
