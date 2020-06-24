@@ -7,6 +7,7 @@ public class Level : MonoBehaviour
 {
 
     [SerializeField] float delayInSeconds = 2f;
+    GameSession GameSession;
 
     public void LoadStartMenu()
     {
@@ -16,6 +17,7 @@ public class Level : MonoBehaviour
     public void LoadGame()
     {
         SceneManager.LoadScene("Game");
+        FindObjectOfType<GameSession>().ResetGame();
     }
 
     public void LoadGameOver()

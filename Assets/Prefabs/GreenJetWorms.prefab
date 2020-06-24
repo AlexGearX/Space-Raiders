@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 500
+  scoreValue: 1000
   enemyLaserPrefab: {fileID: 2804318580587620095, guid: 53bf62eb5ae9c41478a5cbc20438ecfb,
     type: 3}
   shotCounter: 0

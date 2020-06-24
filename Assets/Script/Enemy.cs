@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [Header("Enemy")]
     [SerializeField] float health;
+    [SerializeField] int scoreValue = 150 ;
 
     [Header("shoot")]
     [SerializeField] GameObject enemyLaserPrefab;
@@ -24,6 +25,7 @@ public class Enemy : MonoBehaviour
 
 
     Coroutine FiringCoroutine;
+    GameSession gameSession;
     // Start is called before the first frame update
     void Start()
     {
@@ -73,6 +75,7 @@ public class Enemy : MonoBehaviour
     }
     private void EnemyDie()
     {
+        FindObjectOfType<GameSession>().AddToScore(scoreValue);
         Destroy(gameObject);
         GameObject explosion = Instantiate(explosionEffect, transform.position, Quaternion.identity);
         Destroy(explosion,dutationOfExplosion);

@@ -68,8 +68,10 @@
     <Compile Include="Assets\Script\Enemy.cs" />
     <Compile Include="Assets\Script\EnemyPathing.cs" />
     <Compile Include="Assets\Script\EnemySpawner.cs" />
+    <Compile Include="Assets\Script\GameSession.cs" />
     <Compile Include="Assets\Script\Level.cs" />
     <Compile Include="Assets\Script\Player.cs" />
+    <Compile Include="Assets\Script\ScoreDisplay.cs" />
     <Compile Include="Assets\Script\Shredder.cs" />
     <Compile Include="Assets\Script\WaveConfig.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
