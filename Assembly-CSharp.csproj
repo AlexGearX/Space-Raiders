@@ -69,6 +69,7 @@
     <Compile Include="Assets\Script\EnemyPathing.cs" />
     <Compile Include="Assets\Script\EnemySpawner.cs" />
     <Compile Include="Assets\Script\GameSession.cs" />
+    <Compile Include="Assets\Script\HealthDisplay.cs" />
     <Compile Include="Assets\Script\Level.cs" />
     <Compile Include="Assets\Script\Player.cs" />
     <Compile Include="Assets\Script\ScoreDisplay.cs" />

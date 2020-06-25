@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float paddingX = 1f;
     [SerializeField] float paddingY = 1f;
-    [SerializeField] int health = 200;
+    [SerializeField] int health = 3;
     [Header("Die")]
     [SerializeField] AudioClip playerExplosionSound;
     [SerializeField] [Range(0, 1)] float volumeExplosion = 0.7f;
@@ -80,6 +80,10 @@ public class Player : MonoBehaviour
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
         if (!damageDealer) { return; }
         processHit(damageDealer);
+    }    
+    public int GetHealth()
+    {
+        return health;
     }
     private void processHit(DamageDealer damageDealer)
     {
@@ -90,6 +94,7 @@ public class Player : MonoBehaviour
             Die();
         }
     }
+
 
     private void Die()
     {

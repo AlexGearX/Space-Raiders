@@ -143,8 +143,16 @@ MonoBehaviour:
   moveSpeed: 30
   paddingX: 0.5
   paddingY: 0.63
-  health: 200
+  health: 3
+  playerExplosionSound: {fileID: 8300000, guid: 71b10407812245d42ad45d90b935f52c,
+    type: 3}
+  volumeExplosion: 0.2
+  dutationOfExplosion: 1
+  explosionEffect: {fileID: 6040456351212405757, guid: c36ab01d84829d14aa323ba68458a3eb,
+    type: 3}
   LaserPrefab: {fileID: 4737602285012505720, guid: 45c5c04153b7a0548bf2a761e68e92ce,
     type: 3}
   projectileSpeed: 10
-  projectileFiringPeriod: 0.25
+  projectileFiringPeriod: 0.2
+  shotSound: {fileID: 8300000, guid: 6a541aca8064b12438b32212fdec8d6a, type: 3}
+  volumeShot: 0.01

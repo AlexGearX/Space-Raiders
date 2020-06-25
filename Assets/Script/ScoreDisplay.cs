@@ -10,7 +10,6 @@ public class ScoreDisplay : MonoBehaviour
     TextMeshProUGUI scoreText;
     GameSession gameSession;
     
-
     void Start()
     {
         scoreText = GetComponent<TextMeshProUGUI>();
@@ -19,6 +18,6 @@ public class ScoreDisplay : MonoBehaviour
 
     void Update()
     {
-        scoreText.text = gameSession.GetScore().ToString();
+        scoreText.text = FindObjectOfType<GameSession>().GetScore().ToString();
     }
 }

@@ -623,10 +623,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: b137c6e4-f3d7-4e38-aae1-c15409b3a966
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: Space Raiders (1)
+  organizationId: alexgear34
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

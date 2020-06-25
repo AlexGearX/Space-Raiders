@@ -189,8 +189,8 @@ MonoBehaviour:
     type: 3}
   shotCounter: 0
   minTimeBetweenShots: 0.2
-  maxTimeBetweenShots: 3
-  projectileSpeed: 1
+  maxTimeBetweenShots: 2
+  projectileSpeed: 2
   explosionEffect: {fileID: 361589176378595203, guid: ba61808a1c2f42f429cfd652fcc94ef0,
     type: 3}
   enemyExplosionSound: {fileID: 8300000, guid: 0799ab6ed5ea89f49adcb39bee3b8e86, type: 3}
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 596c2b9556ecbe64f9347454ec706176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 200
+  damage: 1
 --- !u!50 &-600349309025011599
 Rigidbody2D:
   serializedVersion: 4
